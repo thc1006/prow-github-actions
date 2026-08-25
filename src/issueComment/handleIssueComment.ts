@@ -14,6 +14,7 @@ import { assign } from './assign'
 import { cc } from './cc'
 import { close } from './close'
 import { lock } from './lock'
+import { meow } from './meow'
 import { milestone } from './milestone'
 import { reopen } from './reopen'
 import { retitle } from './retitle'
@@ -115,6 +116,11 @@ export async function handleIssueComment(context: Context = github.context): Pro
 
           case '/milestone':
             return await milestone(context).catch(async (e) => {
+              return e
+            })
+
+          case '/meow':
+            return await meow(context).catch(async (e) => {
               return e
             })
 
